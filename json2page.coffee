@@ -26,7 +26,10 @@ json2page = (data) ->
       _id = item.id
       _tag = item.tag || 'div'
       match = _tag.match /^([a-z]+)\d*$/
-      if _tag.match /^text\d*$/ then html += item.value else
+      if _tag.match /^page\d*$/ then html += item.value
+      else if _tag.match /^text\d*/
+        html += item.value.replace('<','&lt;').replace('>','&gt;').replace(' ','&nbsp;')
+      else
         html += "<#{match[1]} "
         html += "id='#{_id}'" if _id
         if _tag.match /^style\d*$/
@@ -45,11 +48,12 @@ render_style = (data) ->
     for attr, content of value
       if match = attr.match /^([a-z-]+)\d*$/
         style += "#{match[1]}:"
-      if typeof value is 'number' then style += "#{content}px;" else
+      if typeof content is 'number' then style += "#{content}px;" else
         style += "#{content};"
     style += '\}'
   return style
       
+###
 err = (e) ->
   o 'Error: ', e
 o = console.log or (v...)->null
@@ -75,19 +79,27 @@ data =
     style1:
       width: 1
     $text: 'line 1'
-    $text1: 'line 2'
+    $text1: 'line 2<>'
+    $page: 'page  <br/>'
     $span:
       style:
         width: 111
-      $text: 'nothing'
+      $text: 'nothin  g'
     $span1: '3'
     id_here$span1: 'add'
     $pipe:
       $text: 'qq'
-# o (json2page data)[1..]
+o (json2page data)[1..]
+###
+
+data =
+  $p:
+    $text: '<text >'
+    $page: '<page >'
+console.log (json2page data)[1..]
 
 out = (data) ->
   (json2page data)[1..]
 
-if typeof window is 'object' then window.json2page = out
-if typeof exports is 'object' then exports.json2page = out
+if window? then window.json2page = out
+if exports? then exports.json2page = out
