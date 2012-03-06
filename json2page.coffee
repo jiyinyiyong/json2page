@@ -90,13 +90,13 @@ data =
     $pipe:
       $text: 'qq'
 o (json2page data)[1..]
-###
 
 data =
   $p:
     $text: '<text >'
     $page: '<page >'
 console.log (json2page data)[1..]
+###
 
 out = (data) ->
   (json2page data)[1..]
