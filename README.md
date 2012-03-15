@@ -117,11 +117,11 @@ You may use `$pipe` to connect pieces of codes:
       $header:
         $pipe: a
     """
-    <nav>
-      <header>
+    <header>
+      <nav>
         Tx
-      </header>
-    </nav>
+      </nav>
+    </header>
     """
 
 Really a small tool. Hope you will like it.
