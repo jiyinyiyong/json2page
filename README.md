@@ -79,8 +79,49 @@ Nesting tags is avalable:
     </nav>
     """
 
-Tags must contain an '$', (html) attributes shoould not:
+Tags must contain an '$', (html) attributes shoold not:  
 
-   input =
-     id$nav:
-       ""
+    input =
+      id$nav:
+        attr: 'something'
+        class: 'else'
+    """
+    <nav id="id" attr="something" class="else">
+    </nav>
+    """
+
+Write stylesheets together with HTML, numbers will become `#{}px`  
+
+    input =
+      $style:
+        body:
+          width: 2
+      $nav:
+        style:
+          background: "#eef"
+    """
+    <style>
+      body{
+        width: 2px;
+      }
+    </style>
+    <nav style="background: #eef;">
+    </nav>
+    """
+
+You may use `$pipe` to connect pieces of codes:  
+
+    a = $nav:
+      $text: 'Tx'
+    input =
+      $header:
+        $pipe: a
+    """
+    <nav>
+      <header>
+        Tx
+      </header>
+    </nav>
+    """
+
+Really a small tool. Hope you will like it.

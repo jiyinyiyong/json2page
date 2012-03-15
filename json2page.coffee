@@ -27,7 +27,7 @@ json2page = (data) ->
       _tag = item.tag || 'div'
       match = _tag.match /^([a-z]+)\d*$/
       if _tag.match /^page\d*$/ then html += item.value
-      else if _tag.match /^text\d*/
+      else if _tag.match /^text\d*$/
         html += item.value.replace('<','&lt;').replace('>','&gt;').replace(' ','&nbsp;')
       else
         html += "<#{match[1]} "
