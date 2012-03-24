@@ -3,45 +3,43 @@
 <head>
   <meta charset='utf-8'/>
   <title>
-    Show
+    Json2page Demo
   </title>
   <style type="text/css">
+    body{
+      padding: 0px;
+      background-color: hsl(330,70%,30%);
+    }
     table{
-      font-size: 13px;
+      font-size: 12px;
       font-family: Wenquanyi Micro Hei Mono;
-      line-height: 26px;
-      margin: 26px auto;
-    }
-    td:first-child{
-      width: 500px;
-    }
-    td:last-child{
-      width: 700px;
+      font-weight: bold;
+      line-height: 18px;
+      margin: 0px auto;
+      -webkit-border-horizontal-spacing: 3px;
+      -webkit-border-vertical-spacing: 6px;
     }
     td{
       background-color: #efeeef;
-      padding: 0px;
+      padding: 18px 18px;
     }
     pre{
       margin: 0px;
-      padding: 0px 13px;
-    }
-    code{
-      margin: 0px;
+      padding: 0px;
     }
     #editor{
-      width: 400px;
-      height: 500px;
-      position: absolute;
-    }
-    #wrapper{
-      height: 600px;
+      width: 600px;
+      height: 400px;
     }
     #run{
-      background: red;
+      background: hsl(30,70%,70%);
     }
     #run:hover{
-      background: blue;
+      background: hsl(0,80%,60%);
+    }
+    textarea{
+      border: 0px;
+      resize: none;
     }
   </style>
   <script src='json2page.coffee' type="text/coffeescript"></script>
@@ -56,8 +54,8 @@
 </head>
 <body>
   <a href="https://github.com/jiyinyiyong/json2page">
-    <img style="position: absolute; top: 0; right: 0; border: 0;"
-      src="http://goo.gl/eiuVs"
+    <img style="position: fixed; z-index: 2; top: 0; right: 0; border: 0;"
+      src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
       alt="Fork me on GitHub">
   </a>
   <table>
@@ -65,24 +63,24 @@
 <tr><td><pre><code
 >in =
   $data:
-    p0: 'Json style code in CoffeeScript'
-    p1: 'Tring to be clearn like coffee'
-    p2: 'Compiles to HTML which contains CSS'
-    p3: 'Maybe I can use it in rendering pages in browser'
+    $p0: 'Think about writing HTML/CSS as Json in CoffeeScript.'
+    $p1: 'It\'s now posibile with Json2page as shown here'
+    $p2: 'Being also Json, it\'s much flexible to handle with JS'
+    $p3: 'Just a light-weight template engine compiling with JS'
 </code></pre></td><td><pre><code
 >out = """
   &lt;data &gt;
     &lt;p &gt;
-      Json style code in CoffeeScript
+      Think about writing HTML/CSS as Json in CoffeeScript.
     &lt;/p&gt;
     &lt;p &gt;
-      Tring to be clearn like coffee
+      It's now posibile with Json2page as shown here
     &lt;/p&gt;
     &lt;p &gt;
-      Compiles to HTML which contains CSS
+      Being also Json, it's much flexible to handle with JS
     &lt;/p&gt;
     &lt;p &gt;
-      Maybe I can use it in rendering pages in browser
+      Just a light-weight template engine compiling with JS
     &lt;/p&gt;
   &lt;/data&gt;
 """
@@ -206,19 +204,33 @@ in =
 """
 </code></pre></td></tr>
 
-<tr><td id="wrapper" style="vertical-align:top;"><pre><code
->in = <span id="run">Compile!()</span>
-  <nav style="height:600px;">
-    <textarea id='editor'></textarea>
-  </nav>
-</code></pre></td><td><pre><code
+<tr><td id="wrapper"><pre><code
+><span id="run">do ()-&gt;</span>
+</code></pre>
+  <nav>
+    <textarea id='editor'>list = [
+  'there are basic keyboard shortcuts here to you can try',
+  'the script will eval this piece of code when clicked'
+  'window.in object will be compiled after that',
+  'the code if CoffeeScript, click the words above to run',
+  'if you have learnt coffee, it will be much simpler',
+  'try'
+]
+
+piece = {}
+for item, index in list
+  piece["$p#{index}"] = item
+
+window.in = $html:
+  $div:
+    $p: 'Guide:'
+    $pipe: piece</textarea>
+  </nav></td><td><pre><code
 >out = """
   <nav id='paint'>
-    Tetx
   </nav>
 """
 </code></pre></td></tr>
-
   </table>
 </body>
 </html>

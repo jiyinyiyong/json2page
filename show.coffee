@@ -6,9 +6,8 @@ event_handler 'editor'
 (get 'run').onclick = ->
   source = (get 'editor').value
   console.log source
-  json_ = CoffeeScript.compile source, bare: 'on'
-  eval "window.json = "+json_
-  html = json2page json
+  CoffeeScript.eval source, bare: 'on'
+  html = json2page window.in
   try
     html = css_beautify html
   catch error
