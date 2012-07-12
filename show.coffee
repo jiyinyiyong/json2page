@@ -2,9 +2,9 @@
 window.get = (id) ->
   re = document.getElementById id
 
-event_handler 'editor'
+textareaEditor 'area'
 (get 'run').onclick = ->
-  source = (get 'editor').value
+  source = (get 'area').value
   console.log source
   CoffeeScript.eval source, bare: 'on'
   html = json2page window.in

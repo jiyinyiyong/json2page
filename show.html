@@ -27,7 +27,7 @@
       margin: 0px;
       padding: 0px;
     }
-    #editor{
+    #area{
       width: 600px;
       height: 400px;
     }
@@ -43,10 +43,8 @@
     }
   </style>
   <script src='json2page.coffee' type="text/coffeescript"></script>
-  <script src="../textareaEditor/editor.coffee"      type="text/coffeescript"></script>
-  <script src="../textareaEditor/map_keys.coffee"    type="text/coffeescript"></script>
-  <script src="../textareaEditor/key_handler.coffee" type="text/coffeescript"></script>
   <script src="show.coffee"      type="text/coffeescript"></script>
+  <script src="http://jiyinyiyong.github.com/textareaEditor/textareaEditor.js"</script>
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"      type="text/javascript"></script>
   <script src="http://coffeescript.org/extras/coffee-script.js" type="text/javascript"></script>
   <script src="http://jsbeautifier.org/beautify-html.js" type="text/javascript"></script>
@@ -203,7 +201,7 @@ in =
 ><span id="run">do ()-&gt;</span>
 </code></pre>
   <nav>
-    <textarea id='editor'>list = [
+    <textarea id='area'>list = [
   'there are basic keyboard shortcuts here to you can try',
   'the script will eval this piece of code when clicked'
   'window.in object will be compiled after that',
