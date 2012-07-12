@@ -3,9 +3,10 @@ Json2page is a script aiming to make writing web pages easy in CoffeeScript.
 So the template is the js objects one write in a decided format,  
 after that, the objects can be compiled to HTML for any use.  
 You may look through these demos first to get the basic concept:  
-http://docview.cnodejs.net/projects/json2page/show.html?html  
-And here's one page I use this to render a page:  
-http://docview.cnodejs.net/projects/docview/app.coffee?raw  
+The live version should be placed here on gh-pages:
+<http://jiyinyiyong.github.com/json2page/show.html>
+
+# This repo is no longer maintained for it's an old idea.
 
 Is a pity we can't handle DOM like what we do on other data.  
 JQuery is quite a good tool, but HTML itself is clumsy.  
