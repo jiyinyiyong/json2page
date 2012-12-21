@@ -1,0 +1,20 @@
+{
+  "name": "json2page",
+  "version": "0.0.0",
+  "description": "convert JSON to html",
+  "main": "page/json2page.js",
+  "scripts": {
+    "test": "echo \"no test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jiyinyiyong/json2page.git"
+  },
+  "keywords": [
+    "json",
+    "html"
+  ],
+  "author": "jiyinyiyong",
+  "license": "MIT",
+  "gitHead": "911b8c683bcde458bc216162b4bee319c7b4e100"
+}
