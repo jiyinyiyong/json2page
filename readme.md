@@ -40,6 +40,14 @@ render = require("json2page").json2page
 render "data"
 ```
 
+### Syntax
+
+An element is an `object`, it has attributes and names.  
+Empty key `""` refers to an value reprecents the tag name.  
+Key `_` refers an raw string as `innerHTML`.  
+Key `$` refers to child elements. It's any array.  
+Other keys will be rendered to attributes.  
+
 ### Licence
 
 MIT
